@@ -3,6 +3,7 @@ package com.meynier.quarkus.kafka;
 import io.reactivex.Flowable;
 import io.smallrye.reactive.messaging.annotations.Broadcast;
 import io.smallrye.reactive.messaging.annotations.Stream;
+import io.smallrye.reactive.messaging.kafka.KafkaMessage;
 import org.eclipse.microprofile.config.inject.ConfigProperty;
 import org.eclipse.microprofile.reactive.messaging.Incoming;
 import org.eclipse.microprofile.reactive.messaging.Outgoing;
@@ -29,5 +30,14 @@ public class DevelopperResource {
         jira.developper = name;
         return jira;
     }
+/*
+    @Incoming("backlog")
+    @Outgoing("jiras")
+    public Jira process(KafkaMessage<String, Jira> jiraMessage) throws InterruptedException {
+
+        Thread.sleep(timeToResolve);
+        jiraMessage.getPayload().developper = name;
+        return jiraMessage.getPayload();
+    }*/
 
 }
