@@ -29,7 +29,7 @@ public class BacklogResource {
     private static String JIRA_ID_PATTERN = "JIRA_%n";
 
     @Inject @Stream("backlog")
-    Emitter emitter;
+    Emitter<Jira> emitter;
 
     @POST
     @Produces(MediaType.APPLICATION_JSON)
